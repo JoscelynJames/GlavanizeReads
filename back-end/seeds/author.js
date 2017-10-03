@@ -40,5 +40,7 @@ exports.seed = function(knex, Promise) {
         bio: `Steve Holden Is a consultant, advising clients on system and network architectures and the design and implementation of programmed web systems. He also teaches classes on TCP/IP, network security, database and programming topics, and is the author of "Python Web Programming", the O'Reilly School of Technology's "Certificate series in Python" and O'Reilly Media's "Intermediate Python" video series.`,
         portrait: 'https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/steve_holden.jpg'
       }]);
-    });
+    })      .then(function() {
+            return knex.raw('alter sequence author_id_seq restart with 7')
+          })
 };

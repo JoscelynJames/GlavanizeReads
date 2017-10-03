@@ -5,7 +5,7 @@
   <!-- My css link -->
   <link rel="stylesheet" type="text/css" href="/index.css">
   <!-- css for books template -->
-  <link rel="stylesheet" type="text/css" href="/index.css">
+  <link rel="stylesheet" type="text/css" href="/books.css">
   <!-- Foundation css link  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" />
 
@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <!--############################## Nav Bar start #############################-->
+  <!-- Nav Bar start -->
   <header>
     <div class="top-bar">
       <div class="top-bar-left">
@@ -32,30 +32,30 @@
       </div>
     </div>
   </header>
-  <!--############################## Nav Bar End ###############################-->
-  <!--##################### handlebars templates goes here #####################-->
-  <div id="all-books"></div>
+  <!-- Nav Bar End -->
+
+  <!-- handlebars templates goes here -->
+  <div id="template"></div>
   <script id="all-books-template" type="text/x-handlebars-template">
-      {{#each books}}
-      <div class="about-the-author">
-        <h3 class="author-title">{{title}}</h3>
-        <div class="row">
-          <div class="small-12 medium-4 columns">
-            <div class="author-image">
-              <img src={{cover_img}}>
-            </div>
-          </div>
-          <div class="small-12 medium-8 columns">
-            <h4 class="separator-left">{{author}}</h4>
-            <h4 class="separator-left">{{genre}}</h4>
-            <p>{{description}}</p>
+    {{#each books}}
+    <div class="about-the-author">
+      <h3 class="author-title">{{title}}</h3>
+      <div class="row">
+        <div class="small-12 medium-4 columns">
+          <div class="author-image">
+            <img src={{cover_img}}>
           </div>
         </div>
+        <div class="small-12 medium-8 columns">
+          <h4 class="separator-left">{{author}}</h4>
+          <h4 class="separator-left">{{genre}}</h4>
+          <p>{{description}}</p>
+        </div>
       </div>
+    </div>
     {{/each}}
   </script>
-
-  <!--############################ End of Templates ############################-->
+  <!-- End of Templates -->
 
   <!-- Jquery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -64,7 +64,7 @@
   <!-- handlebars -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
   <!-- My js -->
-  <script src="/index.js"></script>
+  <script src="/books.js"></script>
 </body>
 
 </html>
