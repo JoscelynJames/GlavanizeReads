@@ -16,7 +16,18 @@ module.exports = {
     },
   get: {
     getAllBooks: function() {
-      return knex.select().from('book')
+      return knex
+        .select()
+        .from('book')
+    }
+  },
+  delete : {
+    deleteBook: function(req) {
+      return knex
+        .select()
+        .from('book')
+        .where('id', '=', req.query.id)
+        .del()
     }
   }
 },

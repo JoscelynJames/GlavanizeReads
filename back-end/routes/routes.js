@@ -23,5 +23,13 @@ router.post('/add-book', (req, res) => {
       console.log('err in routes.js', err);
     })
 });
+// delete book route will return 1 if successful and 0 if failed 
+router.delete('/delete-book', (req, res) => {
+  return queries.books.delete
+    .deleteBook(req)
+    .then((bookBeingDeleted) => {
+      res.json(bookBeingDeleted)
+    })
+})
 
 module.exports = router;
