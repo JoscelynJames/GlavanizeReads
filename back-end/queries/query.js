@@ -14,23 +14,45 @@ module.exports = {
           }])
       }
     },
-  get: {
-    getAllBooks: function() {
-      return knex
-        .select()
-        .from('book')
+    get: {
+      getAllBooks: function() {
+        return knex
+          .select()
+          .from('book')
+      },
+      getOneBook: function(req) {
+        return knex('book')
+          .select()
+          .where('id', '=', req.query.id)
+      }
+    },
+    delete: {
+      deleteBook: function(req) {
+        return knex
+          .select()
+          .from('book')
+          .where('id', '=', req.query.id)
+          .del()
+      }
+    },
+    edit : {
+      editBook: function(req) {
+        console.log(req.body);
+        return knex('book')
+          .select('*')
+          .where('id', '=', req.query.id)
+          .update({
+            id: req.body.id,
+            title: req.body.title,
+            author: req.body.author,
+            genre: req.body.genre,
+            description: req.body.description,
+            cover_img: req.body.cover_img
+          })
+          .catch(err => console.log(err))
+      }
     }
   },
-  delete : {
-    deleteBook: function(req) {
-      return knex
-        .select()
-        .from('book')
-        .where('id', '=', req.query.id)
-        .del()
-    }
-  }
-},
   authors: {
     post: "",
     get: ""

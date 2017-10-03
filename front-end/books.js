@@ -1,37 +1,29 @@
 $(() => {
-  //SetTimeout due to handlebars loading in after jQuery is tyring to apply the click handler
+  const dataBaseURL = 'http://localhost:3211';
+  const frontEndURL = 'http://localhost:3004';
+  getAllBooksFromDatabase();
+
+  //SetTimeout due to handlebars loading in after jQuery is tyring to apply the click handlers and whatnots
   window.setTimeout(() => {
     console.log('timeout ready');
-    $('#delete-bttn').click((e) => {
+
+    //delete book click handler
+    $('#delete-btn').click((e) => {
       e.preventDefault();
       id = e.target.className;
       deleteBookFromDatabase(id);
-
     });
-  }, 1000)
+    //edit book click handler redirects to add-book.html
+    $('#edit-btn').click((e) => {
+      e.preventDefault();
+      id = e.target.className;
+      window.location.href = `${frontEndURL}/add-book.html?id=${id}`;
+    });
 
-  const url = 'http://localhost:3211';
-
-  getAllBooksFromDatabase();
-
-  function deleteBookFromDatabase(id) {
-    if (confirm('are you sure?')) {
-      $.ajax({
-        url: `${url}/delete-book?id=${id}`,
-        type: 'DELETE'
-      });
-      location.reload();
-    } else {
-      console.log('not delted');
-    }
-
-    // return fetch(`${url}/delete-book?id=${id}`)
-    //   .then(res => console.log(res))
-    //   .catch(err => console.log(err, 'deleteBookFromDatabase function'))
-  }
+  }, 5000)
 
   function getAllBooksFromDatabase() {
-    return fetch(`${url}/books`)
+    return fetch(`${dataBaseURL}/books`)
       .then(res => res.json())
       .then(res => {
         let source = $('#all-books-template').html();
@@ -44,5 +36,18 @@ $(() => {
       })
   };
 
+  function deleteBookFromDatabase(id) {
+    if (confirm('are you sure?')) {
+      $.ajax({
+        url: `${dataBaseURL}/delete-book?id=${id}`,
+        type: 'DELETE'
+      });
+      location.reload();
+    }
 
+    // TODO look into later - couldnt get to work with fetch
+      // return fetch(`${dataBasedataBaseURL}/delete-book?id=${id}`)
+      //   .then(res => console.log(res))
+      //   .catch(err => console.log(err, 'deleteBookFromDatabase function'))
+  }
 })

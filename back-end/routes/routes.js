@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const queries = require('../queries/query');
 
+
 router.get('/books', (req, res) => {
   return queries.books.get
     .getAllBooks()
@@ -13,6 +14,14 @@ router.get('/books', (req, res) => {
     })
 });
 
+router.get('/book', (req, res) => {
+  return queries.books.get
+    .getOneBook(req)
+    .then(book => {
+      res.json(book)
+    })
+})
+
 router.post('/add-book', (req, res) => {
   return queries.books.post
     .addBook(req)
@@ -23,12 +32,22 @@ router.post('/add-book', (req, res) => {
       console.log('err in routes.js', err);
     })
 });
-// delete book route will return 1 if successful and 0 if failed 
+
+// delete/patch routes will return 1 if successful and 0 if failed
+
 router.delete('/delete-book', (req, res) => {
   return queries.books.delete
     .deleteBook(req)
     .then((bookBeingDeleted) => {
       res.json(bookBeingDeleted)
+    })
+})
+
+router.patch('/edit-book', (req, res) => {
+  return queries.books.edit
+    .editBook(req)
+    .then((bookBeingEdited) => {
+      res.json(bookBeingEdited)
     })
 })
 
