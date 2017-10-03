@@ -2,7 +2,10 @@
 <html>
 
 <head>
+  <!-- My CSS styles -->
+    <link rel="stylesheet" type="text/css" href="/single-book.css">
   <link rel="stylesheet" type="text/css" href="/books.css">
+
   <!-- Foundation css link  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" />
   <meta charset="utf-8">
@@ -36,28 +39,23 @@
   <div id="template"></div>
   <script id="book-template" type="text/x-handlebars-template">
     {{# each book}}
-    <div class="row expanded collapse">
-      <div class="column">
-        <div class="large-article-header">
-          <div class="large-article-header-content">
-            <div class="center-container">
-              <div class="article-date">
-                <p>{{author}}</p>
-              </div>
-              <div class="article-title">
-                <h1>{{title}}</h1>
-              </div>
-              <div class="article-details">
-                <div class="article-author">
-                  <img src="{{cover_img}}" alt="" />
-                  <a href="#">{{genre}}</a>
-                </div>
-                <div class="article-comments">
-                  <p>{{description}}</p>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="card-flex-article card">
+      <div class="card-image">
+        <img src="{{cover_img}}">
+      </div>
+      <div class="card-section">
+        <h3 class="article-title">{{title}}</h3>
+        <div class="article-details">
+          <span class="time">{{genre}}</span> &#8226;
+          <span class="author">{{author}}</span>
+        </div>
+        <p class="article-summary">{{description}}</p>
+      </div>
+      <div class="card-divider align-justify">
+        <div class="card-actions">
+          <i class="fa fa-heart-o" aria-hidden="true"></i>
+          <i class="fa fa-plus" aria-hidden="true"></i>
+          <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
         </div>
       </div>
     </div>
