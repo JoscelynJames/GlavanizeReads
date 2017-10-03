@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- my CSS -->
+        <link rel="stylesheet" type="text/css" href="./add-author.css">
+        <link rel="stylesheet" type="text/css" href="../books/books.css">
+    <!-- Foundation css link  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" />
+
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <!-- Nav Bar start -->
+        <header>
+          <div class="top-bar">
+            <div class="top-bar-left">
+              <ul class="dropdown menu" data-dropdown-menu>
+                <a href="/index.html">
+                  <li class="menu-text">
+                    <img id="header-logo" src="../assets/images/books.png" /> Galvanize Libary
+                  </li>
+                </a>
+              </ul>
+            </div>
+            <div class="top-bar-right">
+              <ul class="menu">
+                <li><input type="search" placeholder="Search"></li>
+                <li><button type="button" class="button">Search</button></li>
+              </ul>
+            </div>
+          </div>
+        </header>
+    <!-- Nav Bar End -->
+    <div id="success-message">
+      <div data-closable class="callout alert-callout-subtle success">
+        <strong>SUCCESS</strong> Book Added!<a href="#"> Go to book</a>
+        <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+            <span aria-hidden="true">x</span>
+          </button>
+      </div>
+    </div>
+
+    <!-- add-book form start -->
+    <form id="form" class="topBefore">
+      <input id="first-name" type="text" placeholder="First Name"><br>
+      <input id="last-name" type="text" placeholder="Last Name"><br>
+      <input id="portrait" type="text" placeholder="Portrait (URL)"><br>
+      <textarea id="bio" type="text" placeholder="Bio"></textarea><br>
+      <input id="submit-book-bttn" type="submit" value="Add Book">
+    </form>
+    <!-- add-book form end -->
+
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Foundation JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>
+    <!-- handlebars -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
+    <!-- My js -->
+    <script src="./add-author.js"></script>
+
+  </body>
+</html>
