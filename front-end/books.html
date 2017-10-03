@@ -2,13 +2,13 @@
 <html>
 
 <head>
-  <!-- my CSS -->
+  <!-- css for books template -->
   <link rel="stylesheet" type="text/css" href="/books.css">
   <!-- Foundation css link  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" />
 
   <meta charset="utf-8">
-  <title>Reads</title>
+  <title></title>
 </head>
 
 <body>
@@ -17,11 +17,9 @@
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
-          <a href="/index.html">
-            <li class="menu-text">
-              <img id="header-logo" src="./assets/images/books.png" /> Galvanize Libary
-            </li>
-          </a>
+          <li class="menu-text">
+            <img id="header-logo" src="./assets/images/books.png" /> Galvanize Libary
+          </li>
         </ul>
       </div>
       <div class="top-bar-right">
@@ -33,26 +31,32 @@
     </div>
   </header>
   <!-- Nav Bar End -->
-  <!-- books section -->
-  <container>
-    <div class="responsive-blog-post">
-      <div class="individual-post">
-        <h4>Books</h4>
-        <img src="./assets/images/book-logo.png">
-        <a class="button" href="/books.html">View all Books</a>
+
+  <!-- handlebars templates goes here -->
+  <div id="template"></div>
+  <script id="all-books-template" type="text/x-handlebars-template">
+    {{#each author}}
+    <div class="about-the-author">
+      <a href="single-book.html?id={{id}}"><h3 class="author-title">{{title}}</h3></a>
+      <div class="row">
+        <div class="small-12 medium-4 columns">
+          <div class="author-image">
+            <img src={{cover_img}}>
+          </div>
+        </div>
+        <div class="small-12 medium-8 columns">
+          <h4 class="separator-left">{{author}}</h4>
+          <h4 class="separator-left">{{genre}}</h4>
+          <p>{{description}}</p>
+        </div>
       </div>
+      <button type="button" id="delete-btn" class={{id}}>Remove Book</button><br>
+      <button type="button" id="edit-btn" class={{id}}>Edit Book</button>
     </div>
-    <!-- books section ends -->
-    <!-- author section -->
-    <div class="responsive-blog-post">
-      <div class="individual-post">
-        <h4>Authors</h4>
-        <img src="">
-        <a class="button" href="/authors.html">View all Authors</a>
-      </div>
-    </div>
-  </container>
-  <!-- books section end -->
+    {{/each}}
+  </script>
+  <!-- End of Templates -->
+
   <!-- Jquery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- Foundation JavaScript -->
@@ -60,8 +64,7 @@
   <!-- handlebars -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
   <!-- My js -->
-  <script src="/index.js"></script>
-
+  <script src="/books.js"></script>
 </body>
 
 </html>
