@@ -31,11 +31,18 @@
     </div>
   </header>
   <!-- Nav Bar End -->
-
+  <!-- sidebar start -->
+      <container id="author-book-sidebar">
+        <ul class="vertical menu">
+          <li><a href="./authors.html">Authors</a></li>
+          <li><a href="./books.html">Books</a></li>
+        </ul>
+      </container>
+  <!-- end sidebar -->
   <!-- handlebars templates goes here -->
   <div id="template"></div>
   <script id="all-books-template" type="text/x-handlebars-template">
-    {{#each author}}
+    {{#each books}}
     <div class="about-the-author">
       <a href="single-book.html?id={{id}}"><h3 class="author-title">{{title}}</h3></a>
       <div class="row">
