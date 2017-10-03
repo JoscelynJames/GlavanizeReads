@@ -37,7 +37,7 @@
   <script id="all-books-template" type="text/x-handlebars-template">
     {{#each books}}
     <div class="about-the-author">
-      <h3 class="author-title">{{title}}</h3>
+      <a href="single-book.html?id={{id}}"><h3 class="author-title">{{title}}</h3></a>
       <div class="row">
         <div class="small-12 medium-4 columns">
           <div class="author-image">
@@ -50,8 +50,8 @@
           <p>{{description}}</p>
         </div>
       </div>
-          <button type="button" id="delete-btn" class={{id}}>Remove Book</button><br>
-          <button type="button" id="edit-btn" class={{id}}>Edit Book</button>
+      <button type="button" id="delete-btn" class={{id}}>Remove Book</button><br>
+      <button type="button" id="edit-btn" class={{id}}>Edit Book</button>
     </div>
     {{/each}}
   </script>

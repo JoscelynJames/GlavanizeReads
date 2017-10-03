@@ -1,48 +1,41 @@
 $(() => {
+  // urls are only for devlopment
   const dataBaseURL = 'http://localhost:3211';
   const frontEndURL = 'http://localhost:3004';
-  //get href and the query attached
   var url = window.location.href;
   var id = url.substring(url.indexOf('?') + 4);
-console.log(id);
-  //hide and show of the success-message
-  $('#success-message').hide()
-    $('#submit-book-bttn').click((e) => {
-      e.preventDefault();
-      $('#success-message').show()
-    })
+  let data;
 
-    // //change button to say edit
-    // $('#submit-book-bttn').val('Edit Book')
-    // $('#submit-book-bttn').attr('id', 'edit-book-btn')
+// hide the success-message
+  $('#success-message').hide()
+
+
+// if the url contains a query for id and if it does you know you are editing a book
+  if (url.indexOf('?id=') > -1) {
+    getBook(id);
+    $('#submit-book-bttn').val('Edit Book')
+    $('#submit-book-bttn').attr('id', 'edit-book-bttn')
+  }
 
     function getBook(id) {
       return fetch(`${dataBaseURL}/book?id=${id}`)
         .then(res => res.json())
         .then(res => {
-          // extract need data from res
-          let title = res[0].title;
-          let author = res[0].author;
-          let genre = res[0].genre;
-          let description = res[0].description;
-          let cover_img = res[0].cover_img;
-
+          // extract need data from res &&
           // auto populate the form with the data above
-          $('#title').val(title);
-          $('#author').val(author);
-          $('#genre').val(genre);
-          $('#description').val(description);
-          $('#cover-img').val(cover_img);
+          $('#title').val(res[0].title);
+          $('#author').val(res[0].author);
+          $('#genre').val(res[0].genre);
+          $('#description').val(res[0].description);
+          $('#cover-img').val(res[0].cover_img);
         })
     };
 
-    getBook(id);
 
     //click handler to update book info
-    $('#submit-book-bttn').click((e) => {
+    $('#edit-book-bttn').click((e) => {
       e.preventDefault();
-
-      let data = {
+      data = {
         id: id,
         title: $('#title').val(),
         author: $('#author').val(),
@@ -50,14 +43,33 @@ console.log(id);
         description: $('#description').val(),
         cover_img: $('#cover-img').val()
       };
-      JSON.stringify(data)
-      console.log(data);
 
       $.ajax({
         url: `${dataBaseURL}/edit-book?id=${id}`,
         type: 'PATCH',
         data: data
-      }).catch((err) => console.log(err))
+      })
+      .then(() => {
+          $('#success-message').show()
+        })
+    })
+
+// if the query does not contain a query you know you need are adding a book
+    $('#submit-book-bttn').click((e) => {
+      e.preventDefault();
+      data = {
+       title: $('#title').val(),
+       author: $('#author').val(),
+       genre: $('#genre').val(),
+       description: $('#description').val(),
+       cover_img: $('#cover-img').val()
+     };
+      $.ajax({
+        url: `${dataBaseURL}/add-book`,
+        type: 'POST',
+        data: data
+      })
+      $('#success-message').show()
     })
 
 })

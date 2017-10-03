@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- My CSS styles -->
+    <link rel="stylesheet" type="text/css" href="/single-book.css">
+  <link rel="stylesheet" type="text/css" href="/books.css">
+
+  <!-- Foundation css link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" />
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <!-- Nav Bar start -->
+  <header>
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <a href="/index.html">
+            <li class="menu-text">
+              <img id="header-logo" src="./assets/images/books.png" /> Galvanize Libary
+            </li>
+          </a>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="menu">
+          <li><input type="search" placeholder="Search"></li>
+          <li><button type="button" class="button">Search</button></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <!-- Nav Bar End -->
+
+  <!-- handlebars templates goes here -->
+  <div id="template"></div>
+  <script id="book-template" type="text/x-handlebars-template">
+    {{# each book}}
+    <div class="card-flex-article card">
+      <div class="card-image">
+        <img src="{{cover_img}}">
+      </div>
+      <div class="card-section">
+        <h3 class="article-title">{{title}}</h3>
+        <div class="article-details">
+          <span class="time">{{genre}}</span> &#8226;
+          <span class="author">{{author}}</span>
+        </div>
+        <p class="article-summary">{{description}}</p>
+      </div>
+       <!-- <div class="card-divider align-middle">
+         <div class="avatar with-add-icon">
+           <img src="https://placehold.it/35" alt="avatar" />
+           <i class="fa fa-plus-circle" aria-hidden="true"></i>
+         </div>
+        <div class="user-info">
+          <p class="user-name">Name</p>
+          <p class="category">added to <strong>Category</strong></p>
+        </div>
+      </div> -->
+      <div class="card-divider align-justify">
+        <div class="card-actions">
+          <i class="fa fa-heart-o" aria-hidden="true"></i>
+          <i class="fa fa-plus" aria-hidden="true"></i>
+          <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <div class="row expanded collapse">
+      <div class="column">
+        <div class="large-article-header">
+          <div class="large-article-header-content">
+            <div class="center-container">
+              <div class="article-date">
+                <p>{{author}}</p>
+              </div>
+              <div class="article-title">
+                <h1>{{title}}</h1>
+              </div>
+              <div class="article-details">
+                <div class="article-author">
+                  <img src="{{cover_img}}" alt="" />
+                  <a href="#">{{genre}}</a>
+                </div>
+                <div class="article-comments">
+                  <p>{{description}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    {{/each}}
+  </script>
+  <!-- handlers template ends -->
+
+  <!-- Jquery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Foundation JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>
+  <!-- handlebars -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
+  <!-- My js -->
+  <script src="/single-book.js"></script>
+
+</body>
+
+</html>

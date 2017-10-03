@@ -1,44 +1,70 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- My css link -->
-    <link rel="stylesheet" type="text/css" href="/books.css">
-    <!-- css for add-book template -->
-    <link rel="stylesheet" type="text/css" href="/add-book.css">
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
 
-    <div id="success-message">
-      <div data-closable class="callout alert-callout-subtle success">
-        <strong>SUCCESS</strong> Book Added!<a href="#"> Go to book</a>
-        <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-          <span aria-hidden="true">x</span>
-        </button>
+<head>
+  <!-- My css link -->
+  <link rel="stylesheet" type="text/css" href="/books.css">
+  <!-- Foundation css link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" />
+  <!-- css for add-book template -->
+  <!-- <link rel="stylesheet" type="text/css" href="/add-book.css"> -->
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <!-- Nav Bar start -->
+  <header>
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <a href="/index.html" >
+            <li class="menu-text">
+              <img id="header-logo" src="./assets/images/books.png"/> Galvanize Libary
+            </li>
+          </a>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="menu">
+          <li><input type="search" placeholder="Search"></li>
+          <li><button type="button" class="button">Search</button></li>
+        </ul>
       </div>
     </div>
+  </header>
+  <!-- Nav Bar End -->
 
-    <!-- add-book form start -->
-    <form id="form" class="topBefore">
-      <input id="title" type="text" placeholder="Title"><br>
-      <input id="author" type="text" placeholder="Author"><br>
-      <input id="genre" type="text" placeholder="Genre"><br>
-      <input id="cover-img" type="text" placeholder="Cover Image (URL)"><br>
-      <!-- <img src="../assets/images/add-icon.png"/> -->
-      <textarea id="description" type="text" placeholder="Description"></textarea><br>
-      <input id="submit-book-bttn" type="submit" value="Add Book">
-    </form>
-<!-- add-book form end -->
+  <div id="success-message">
+    <div data-closable class="callout alert-callout-subtle success">
+      <strong>SUCCESS</strong> Book Added!<a href="#"> Go to book</a>
+      <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+          <span aria-hidden="true">x</span>
+        </button>
+    </div>
+  </div>
 
-    <!-- Jquery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Foundation JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>
-    <!-- handlebars -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
-    <!-- My js -->
-    <script src="/add-book.js"></script>
+  <!-- add-book form start -->
+  <form id="form" class="topBefore">
+    <input id="title" type="text" placeholder="Title"><br>
+    <input id="author" type="text" placeholder="Author"><br>
+    <input id="genre" type="text" placeholder="Genre"><br>
+    <input id="cover-img" type="text" placeholder="Cover Image (URL)"><br>
+    <!-- <img src="../assets/images/add-icon.png"/> -->
+    <textarea id="description" type="text" placeholder="Description"></textarea><br>
+    <input id="submit-book-bttn" type="submit" value="Add Book">
+  </form>
+  <!-- add-book form end -->
 
-  </body>
+  <!-- Jquery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Foundation JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>
+  <!-- handlebars -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
+  <!-- My js -->
+  <script src="/add-book.js"></script>
+
+</body>
+
 </html>

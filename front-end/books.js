@@ -1,6 +1,8 @@
 $(() => {
+  // urls are only for devlopment
   const dataBaseURL = 'http://localhost:3211';
   const frontEndURL = 'http://localhost:3004';
+
   getAllBooksFromDatabase();
 
   //SetTimeout due to handlebars loading in after jQuery is tyring to apply the click handlers and whatnots
@@ -13,14 +15,16 @@ $(() => {
       id = e.target.className;
       deleteBookFromDatabase(id);
     });
+
     //edit book click handler redirects to add-book.html
     $('#edit-btn').click((e) => {
       e.preventDefault();
+      //class name holds the id from the database
       id = e.target.className;
       window.location.href = `${frontEndURL}/add-book.html?id=${id}`;
     });
 
-  }, 5000)
+  }, 1000)
 
   function getAllBooksFromDatabase() {
     return fetch(`${dataBaseURL}/books`)
@@ -46,8 +50,8 @@ $(() => {
     }
 
     // TODO look into later - couldnt get to work with fetch
-      // return fetch(`${dataBasedataBaseURL}/delete-book?id=${id}`)
-      //   .then(res => console.log(res))
-      //   .catch(err => console.log(err, 'deleteBookFromDatabase function'))
+    // return fetch(`${dataBasedataBaseURL}/delete-book?id=${id}`)
+    //   .then(res => console.log(res))
+    //   .catch(err => console.log(err, 'deleteBookFromDatabase function'))
   }
 })
