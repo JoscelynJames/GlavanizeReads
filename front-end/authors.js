@@ -4,7 +4,9 @@ $(() => {
   const frontEndURL = 'http://localhost:3004';
   var url = window.location.href;
   var id = url.substring(url.indexOf('?') + 4);
-getAllAuthorsFromDatabase()
+
+  getAllAuthorsFromDatabase()
+  
   function getAllAuthorsFromDatabase() {
     return fetch(`${dataBaseURL}/authors`)
       .then(res => res.json())
