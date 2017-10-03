@@ -54,6 +54,15 @@ module.exports = {
   },
   authors: {
     post: {
+      addAuthor: function(req) {
+        return knex('author')
+          .insert([{
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            bio: req.body.bio,
+            portrait: req.body.portrait
+          }])
+      }
 
     },
     get: {

@@ -3,7 +3,7 @@
 
 <head>
   <!-- css for books template -->
-  <link rel="stylesheet" type="text/css" href="/books.css">
+  <link rel="stylesheet" type="text/css" href="./books.css">
   <!-- Foundation css link  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" />
 
@@ -18,7 +18,7 @@
       <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
           <li class="menu-text">
-            <img id="header-logo" src="./assets/images/books.png" /> Galvanize Libary
+            <img id="header-logo" src="../assets/images/books.png" /> Galvanize Libary
           </li>
         </ul>
       </div>
@@ -34,7 +34,7 @@
   <!-- sidebar start -->
       <container id="author-book-sidebar">
         <ul class="vertical menu">
-          <li><a href="./authors.html">Authors</a></li>
+          <li><a href="../authors/authors.html">Authors</a></li>
           <li><a href="./books.html">Books</a></li>
         </ul>
       </container>
@@ -57,6 +57,7 @@
           <p>{{description}}</p>
         </div>
       </div>
+      <!-- TODO delte bttn is only working on one book-->
       <button type="button" id="delete-btn" class={{id}}>Remove Book</button><br>
       <button type="button" id="edit-btn" class={{id}}>Edit Book</button>
     </div>
@@ -71,7 +72,7 @@
   <!-- handlebars -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
   <!-- My js -->
-  <script src="/books.js"></script>
+  <script src="./books.js"></script>
 </body>
 
 </html>
