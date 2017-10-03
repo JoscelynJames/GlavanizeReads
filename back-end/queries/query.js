@@ -54,7 +54,15 @@ module.exports = {
     }
   },
   authors: {
-    post: "",
-    get: ""
+    post: {
+
+    },
+    get: {
+      getAllAuthors: function() {
+        return knex
+          .select()
+          .from('author')
+      }
+    }
   }
 }
