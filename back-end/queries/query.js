@@ -4,6 +4,7 @@ module.exports = {
   books: {
     post: {
       addBook: function(req) {
+        console.log(req.body);
         return knex('book')
           .insert([{
             title: req.body.title,
@@ -35,9 +36,8 @@ module.exports = {
           .del()
       }
     },
-    edit : {
+    edit: {
       editBook: function(req) {
-        console.log(req.body);
         return knex('book')
           .select('*')
           .where('id', '=', req.query.id)

@@ -6,8 +6,8 @@ exports.up = function(knex, Promise) {
     table.text('description')
     table.text('cover_img')
     table.integer('author')
-    .references('author.id')
-    .onDelete('CASCADE')
+      .references('author.id')
+      .onDelete('CASCADE')
   })
 };
 
