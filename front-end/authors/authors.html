@@ -2,8 +2,8 @@
 <html>
   <head>
 <!-- my CSS -->
-    <link rel="stylesheet" type="text/css" href="/authors.css">
-    <link rel="stylesheet" type="text/css" href="/books.css">
+    <link rel="stylesheet" type="text/css" href="./authors.css">
+    <link rel="stylesheet" type="text/css" href="../books/books.css">
 <!-- Foundation css link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" />
 
@@ -18,7 +18,7 @@
           <ul class="dropdown menu" data-dropdown-menu>
             <a href="/index.html">
               <li class="menu-text">
-                <img id="header-logo" src="./assets/images/books.png" /> Galvanize Libary
+                <img id="header-logo" src="../assets/images/books.png" /> Galvanize Libary
               </li>
             </a>
           </ul>
@@ -36,10 +36,17 @@
     <container id="author-book-sidebar">
       <ul class="vertical menu">
         <li><a href="./authors.html">Authors</a></li>
-        <li><a href="./books.html">Books</a></li>
+        <li><a href="../books/books.html">Books</a></li>
       </ul>
     </container>
 <!-- end sidebar -->
+<!-- add author button -->
+  <container id="add-author-bttn" >
+    <a href="../add-author/add-author.html">
+      <button  type="button" >Add Author</button>
+    </a>
+  </container>
+<!-- add author button ends-->
 <!-- handlebars templates goes here -->
     <container id="authors">
       <div id="template"></div>
@@ -72,6 +79,6 @@
 <!-- handlebars -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
 <!-- My js -->
-    <script src="/authors.js"></script>
+    <script src="./authors.js"></script>
   </body>
 </html>
