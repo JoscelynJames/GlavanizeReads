@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- my CSS -->
+<!-- my CSS -->
     <link rel="stylesheet" type="text/css" href="/authors.css">
     <link rel="stylesheet" type="text/css" href="/books.css">
-    <!-- Foundation css link  -->
+<!-- Foundation css link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" />
 
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
-    <!-- Nav Bar start -->
+<!-- Nav Bar start -->
     <header>
       <div class="top-bar">
         <div class="top-bar-left">
@@ -31,27 +31,19 @@
         </div>
       </div>
     </header>
-    <!-- Nav Bar End -->
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> db904e66857b886e68086e6de97dd3c6e15a791c
-    <ul class="vertical menu">
-      <li><a href="#">One</a></li>
-      <li><a href="#">Two</a></li>
-      <li><a href="#">Three</a></li>
-      <li><a href="#">Four</a></li>
-    </ul>
-<<<<<<< HEAD
-=======
->>>>>>> 28f6ae91efd6cf9bd25f540fdb9391e1d284ef6b
-=======
-
->>>>>>> db904e66857b886e68086e6de97dd3c6e15a791c
-
-    <!-- handlebars templates goes here -->
-    <div id="template"></div>
+<!-- Nav Bar End -->
+<!-- sidebar start -->
+    <container id="author-book-sidebar">
+      <ul class="vertical menu">
+        <li><a href="./authors.html">Authors</a></li>
+        <li><a href="./books.html">Books</a></li>
+      </ul>
+    </container>
+<!-- end sidebar -->
+<!-- handlebars templates goes here -->
+    <container id="authors">
+      <div id="template"></div>
+    </container>
     <script id="all-authors-template" type="text/x-handlebars-template">
       {{#each author}}
       <div class="about-the-author">
@@ -71,15 +63,15 @@
       </div>
       {{/each}}
     </script>
-    <!-- End of Templates -->
+<!-- End of Templates -->
 
-    <!-- Jquery -->
+<!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Foundation JavaScript -->
+<!-- Foundation JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>
-    <!-- handlebars -->
+<!-- handlebars -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
-    <!-- My js -->
+<!-- My js -->
     <script src="/authors.js"></script>
   </body>
 </html>

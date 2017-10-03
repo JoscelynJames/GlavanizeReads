@@ -4,7 +4,6 @@ module.exports = {
   books: {
     post: {
       addBook: function(req) {
-        console.log(req.body);
         return knex('book')
           .insert([{
             title: req.body.title,

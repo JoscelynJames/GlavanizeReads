@@ -3,10 +3,17 @@
   width: 75px;
 }
 
+#author-book-sidebar {
+  position: fixed;
+  height: 1000px;
+  width: 50px
+}
+
 .about-the-author {
   background-color: #fefefe;
   padding: 1rem;
   border: 1px solid #cacaca;
+  margin-left: 80px;
 }
 
 .about-the-author .separator-left {
