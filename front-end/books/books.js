@@ -1,7 +1,7 @@
 $(() => {
   // urls are only for devlopment
   const dataBaseURL = 'https://fathomless-springs-90574.herokuapp.com';
-  const http://groovy-cloud.surge.sh = 'hhttp://groovy-cloud.surge.sh';
+  const  frontEndURL = 'http://groovy-cloud.surge.sh';
   getAllBooksFromDatabase();
 
   //SetTimeout due to handlebars loading in after jQuery is tyring to apply the click handlers and whatnots
