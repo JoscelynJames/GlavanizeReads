@@ -1,6 +1,6 @@
 $(() => {
   // urls are only for devlopment
-  const dataBaseURL = 'http://localhost:3211';
+  const dataBaseURL = 'https://fathomless-springs-90574.herokuapp.com';
   const frontEndURL = 'http://localhost:3004';
 
   getAllBooksFromDatabase();
