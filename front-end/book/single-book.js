@@ -1,7 +1,7 @@
 $(() => {
   // urls are only for devlopment
-  const dataBaseURL = 'http://localhost:3211';
-  const frontEndURL = 'http://localhost:3004';
+  const dataBaseURL = 'https://fathomless-springs-90574.herokuapp.com';
+  const  frontEndURL = 'http://groovy-cloud.surge.sh';
   var url = window.location.href;
   var id = url.substring(url.indexOf('?') + 4);
   getBookFromDatabase();
