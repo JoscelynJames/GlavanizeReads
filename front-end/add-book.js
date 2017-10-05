@@ -1,13 +1,13 @@
 $(() => {
   // urls are only for devlopment
-  const dataBaseURL = 'http://localhost:3211';
-  const http://groovy-cloud.surge.sh = 'hhttp://groovy-cloud.surge.sh';
+  const dataBaseURL = 'https://fathomless-springs-90574.herokuapp.com';
+  const http://groovy-cloud.surge.sh = 'http://localhost:3004';
   var url = window.location.href;
   var id = url.substring(url.indexOf('?') + 4);
   let data;
 
 // hide the success-message
-  $('#success-message').hide()
+  $('#success-message').hide();
 
 
 // if the url contains a query for id and if it does you know you are editing a book
@@ -52,7 +52,7 @@ $(() => {
       .then(() => {
           $('#success-message').show()
         })
-    })
+    });
 
 // if the query does not contain a query you know you need are adding a book
     $('#submit-book-bttn').click((e) => {
@@ -72,4 +72,4 @@ $(() => {
       $('#success-message').show()
     })
 
-})
+});
