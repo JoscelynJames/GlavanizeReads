@@ -2,7 +2,6 @@ $(() => {
   // urls are only for devlopment
   const dataBaseURL = 'https://fathomless-springs-90574.herokuapp.com';
   const frontEndURL = 'http://localhost:3004';
-
   getAllBooksFromDatabase();
 
   //SetTimeout due to handlebars loading in after jQuery is tyring to apply the click handlers and whatnots
@@ -30,6 +29,7 @@ $(() => {
     return fetch(`${dataBaseURL}/books`)
       .then(res => res.json())
       .then(res => {
+        console.log(res);
         let source = $('#all-books-template').html();
         let template = Handlebars.compile(source);
         let context = {
@@ -37,7 +37,7 @@ $(() => {
         };
         let html = template(context);
         $('#template').append(html);
-      })
+      }).catch(err => console.log(err))
   };
 
   function deleteBookFromDatabase(id) {

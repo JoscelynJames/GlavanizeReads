@@ -45,6 +45,17 @@ router.post('/add-book', (req, res) => {
       console.log('err in routes.js', err);
     })
 });
+
+router.post('/add-author', (req, res) => {
+  return queries.authors.post
+    .addAuthor(req)
+    .then((addedAuthor) => {
+      res.json(addedAuthor)
+    })
+    .catch((err) => {
+      console.log('err in routes.js', err);
+    })
+});
 // end of post
 //delete/patch routes will return 1 if successful and 0 if failed
 // start of delete

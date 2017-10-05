@@ -1,0 +1,13 @@
+#author-book-sidebar {
+  position: fixed;
+  height: 1000px;
+  width: 50px
+}
+
+.about-the-author {
+  margin-left: 80px;
+}
+
+#add-author-bttn {
+  float: right;
+}
