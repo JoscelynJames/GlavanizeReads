@@ -1,7 +1,8 @@
 $(() => {
   // urls are only for devlopment
   const dataBaseURL = 'https://fathomless-springs-90574.herokuapp.com';
-  const  frontEndURL = 'http://groovy-cloud.surge.sh';
+  var url = window.location.href;
+
   getAllBooksFromDatabase();
 
   //SetTimeout due to handlebars loading in after jQuery is tyring to apply the click handlers and whatnots
@@ -11,47 +12,47 @@ $(() => {
     //delete book click handler
     $('#delete-btn').click((e) => {
       e.preventDefault();
-      id = e.target.className;
-      deleteBookFromDatabase(id);
+      deleteBookFromDatabase(e);
     });
 
     //edit book click handler redirects to add-book.html
     $('#edit-btn').click((e) => {
       e.preventDefault();
-      //class name holds the id from the database
-      id = e.target.className;
-      window.location.href = `${http://groovy-cloud.surge.sh}/add-book.html?id=${id}`;
+      editBookFromDataBase(e)
     });
 
-  }, 1000)
+  }, 1000);
 
+  // start of all the function 
   function getAllBooksFromDatabase() {
     return fetch(`${dataBaseURL}/books`)
       .then(res => res.json())
       .then(res => {
-        console.log(res);
-        let source = $('#all-books-template').html();
-        let template = Handlebars.compile(source);
-        let context = {
-          books: res
-        };
-        let html = template(context);
-        $('#template').append(html);
+        handleBarsTemplateForAllBooks(res)
       }).catch(err => console.log(err))
   };
 
-  function deleteBookFromDatabase(id) {
+  function handleBarsTemplateForAllBooks(res) {
+    let source = $('#all-books-template').html();
+    let template = Handlebars.compile(source);
+    let context = { books: res };
+    let html = template(context);
+
+    $('#template').append(html);
+  }
+
+  function deleteBookFromDatabase(e) {
+    let id = e.target.className;
     if (confirm('are you sure?')) {
-      $.ajax({
-        url: `${dataBaseURL}/delete-book?id=${id}`,
-        type: 'DELETE'
-      });
+      return fetch(`${dataBaseURL}/delete-book?id=${id}`, {method : 'DELETE'})
+        .then(res => console.log(res))
+        .catch(err => console.log(err, 'deleteBookFromDatabase function'))
       location.reload();
     }
+  }
 
-    // TODO look into later - couldnt get to work with fetch
-    // return fetch(`${dataBasedataBaseURL}/delete-book?id=${id}`)
-    //   .then(res => console.log(res))
-    //   .catch(err => console.log(err, 'deleteBookFromDatabase function'))
+  function editBookFromDataBase(e) {
+    let id = e.target.className;
+    return window.location.href = `${url}/add-book.html?id=${id}`;
   }
 })
